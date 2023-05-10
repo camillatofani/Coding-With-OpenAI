@@ -4,8 +4,11 @@ import Response from '../../components/Form/Response/Response';
 import Button from '../../components/Button/Button';
 import axios from 'axios';
 import styles from './TypeOf.module.css';
+import { useTranslation } from 'react-i18next';
 
 const TypeOf = () => {
+	const { t } = useTranslation();
+
 	const [code, setCode] = useState('');
 	const [codingError, setCodingError] = useState('');
 	const [isErrorVisible, setIsErrorVisible] = useState(false);
@@ -20,10 +23,9 @@ const TypeOf = () => {
 			const apiUrl = 'https://api.openai.com/v1/completions';
 			const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
 
-			// Chiamata API per la verifica della lingua
 			const languageRequestBody = {
 				model: 'text-davinci-003',
-				prompt: `In che linguaggio è scritto il codice ${ code }? Dimmi solo il nome, senza punteggiatura e spazi e precedilo con "✅". Se il codice non è valido in alcun linguaggio dimmi soltanto "❌The code language you wrote doesn't exist.".`,
+				prompt: t('typeof.prompt_1') + code + t('typeof.prompt_2'),
 				max_tokens: 50,
 			};
 			const languageResponse = await axios.post(apiUrl, languageRequestBody, {
@@ -33,21 +35,20 @@ const TypeOf = () => {
 				},
 			});
 			const languageResult = languageResponse.data.choices[0].text;
-			// Imposta il risultato della verifica della lingua nello stato
 			setCodingError(languageResult);
 			setIsErrorVisible(true);
 		} catch (error) {
-			console.error('Errore durante la verifica degli errori:', error);
+			console.error(t('general.api_error_console'), error);
 		}
 	};
 
 	return (
 		<div>
-			<h2>Enter your code and discover the coding language</h2>
+			<h2>{ t('typeof.title') }</h2>
 			<Input code={ code } onCodeChange={ (e) => setCode(e.target.value) }/>
 			<p className={ styles.counter }>{ code.length } / 1000</p>
-			<Button text="language of my code" onClick={ handleCheckErrors } disabled={ code.length < 5 }></Button>
-			{ isErrorVisible && <Response title="The code language is" codingError={ codingError.replace(/^\n\n/, '') }/> }
+			<Button text={ t('typeof.button') } onClick={ handleCheckErrors } disabled={ code.length < 5 }></Button>
+			{ isErrorVisible && <Response title={ t('typeof.response') } codingError={ codingError.replace(/^\n\n/, '') }/> }
 		</div>
 	);
 };

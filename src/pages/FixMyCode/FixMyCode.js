@@ -5,8 +5,11 @@ import Button from '../../components/Button/Button';
 import StringDifferenceHighlighter from '../../components/StringDifferenceHighlighter/StringDifferenceHighlighter';
 import axios from 'axios';
 import styles from './FixMyCode.module.css';
+import { useTranslation } from 'react-i18next';
 
 const FixMyCode = () => {
+	const { t } = useTranslation();
+
 	const [code, setCode] = useState('');
 	const [codingError, setCodingError] = useState('');
 	const [isErrorVisible, setIsErrorVisible] = useState(false);
@@ -23,8 +26,6 @@ const FixMyCode = () => {
 		try {
 			const apiUrl = 'https://api.openai.com/v1/completions';
 			const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
-
-			// Chiamata API per la verifica della lingua
 			const languageRequestBody = {
 				model: 'text-davinci-003',
 				prompt: `Correggi il mio codice ${ code } e dimmi solo il codice corretto, senza commentare.`,
@@ -37,11 +38,10 @@ const FixMyCode = () => {
 				},
 			});
 			const languageResult = languageResponse.data.choices[0].text;
-			// Imposta il risultato della verifica della lingua nello stato
 			setCodingError(languageResult);
 			setIsErrorVisible(true);
 		} catch (error) {
-			console.error('Errore durante la verifica degli errori:', error);
+			console.error(t('general.api_error_console'), error);
 			setTooLong(true);
 		}
 	};
@@ -51,13 +51,13 @@ const FixMyCode = () => {
 
 	return (
 		<div>
-			<h2>Enter your code and I'll do the rest</h2>
+			<h2>{ t('fix.title') }</h2>
 			<Input code={ code } onCodeChange={ (e) => setCode(e.target.value) }/>
 			<p className={ styles.counter }>{ code.length } / 1000</p>
-			<Button text="fix my code, please" onClick={ handleCheckErrors } disabled={ code.length < 10 }></Button>
-			{ isErrorVisible && <Response title="The correct code is" codingError={ codingError.replace(/^\n\n/, '') }/> }
+			<Button text={ t('fix.button') } onClick={ handleCheckErrors } disabled={ code.length < 10 }></Button>
+			{ isErrorVisible && <Response title={ t('fix.response') } codingError={ codingError.replace(/^\n\n/, '') }/> }
 			{ tooLong && <h2>Oh no honey! Please, break your code into smaller pieces.I'm not ready for all this code yet. I promise I'll make it up to you 🖖🏻</h2> }
-			{ isErrorVisible && <StringDifferenceHighlighter originalText={ originalText } modifiedText={ modifiedText } /> }
+			{ isErrorVisible && <StringDifferenceHighlighter title={ t('fix.change') } originalText={ originalText } modifiedText={ modifiedText } /> }
 		</div>
 	);
 };

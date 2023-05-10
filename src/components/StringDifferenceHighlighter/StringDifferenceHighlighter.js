@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function StringDifferenceHighlighter({ originalText, modifiedText }) {
+export default function StringDifferenceHighlighter({ title, originalText, modifiedText }) {
 	const findDifferences = () => {
 		const result = [];
 		const maxLength = Math.max(originalText.length, modifiedText.length);
@@ -22,7 +22,7 @@ export default function StringDifferenceHighlighter({ originalText, modifiedText
 
 	return (
 		<div>
-			<h2>Where did we change the code from?</h2>
+			<h2>{title}</h2>
 			{ findDifferences() }
 		</div>
 	);

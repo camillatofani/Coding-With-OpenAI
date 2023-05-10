@@ -1,0 +1,51 @@
+{
+	"general": {
+		"name": "Camilla Tofani",
+		"website": "https://www.camillatofani.it",
+		"linkedin": "https://www.linkedin.com/in/camilla-tofani/",
+		"input": "Type or paste here your code",
+		"api_error_console": "Error during the checking for errors:"
+	},
+	"menu": {
+		"home": "Home",
+		"type": "Type of",
+		"fix": "Fix my code",
+		"docs": "Docs"
+	},
+	"footer": {
+		"coding": "Coding by"
+	},
+	"home": {
+		"mission_1": "With this simple application, still in",
+		"mission_2": "version, I try to help Junior Developers.",
+		"beta": "BETA",
+		"feedback": "For any feedback you can find me on",
+		"find": "In this application you can find:",
+		"type": "Paste the code and discover the language in which it was written.",
+		"fix": "It will help you fix your code.",
+		"docs": "This section will walk you through the code you're dealing with step-by-step."
+	},
+	"typeof": {
+		"title": "Enter your code and discover the coding language",
+		"button": "Language of my code",
+		"response": "The code language is",
+		"prompt_1": "What programming language is this code in: ",
+		"prompt_2": "? Tell me only the name, without punctuation and spaces. Before the name insert '✅'. If the code that i written dosen't exist in any program languages tell me only '❌ The code you wrote was not recognized.'"
+	},
+	"fix": {
+		"title": "Enter your code and I'll do the rest!",
+		"button": "Fix my code, please",
+		"response": "The correct code is",
+		"change": "Where did we change the code from?",
+		"prompt_1": "Explain to me using very simple terms and explaining as if I were a child how this code works: ",
+		"prompt_2": ". It will have to be an ordered list. For each point of the ordered list, quote me the piece of code you are referring to."
+	},
+	"docs": {
+		"title": "Enter your code and I'll try to explain it to you",
+		"button": "Docs my code",
+		"response": "Your code explained",
+		"prompt_1": "Explain to me using very simple terms and explaining as if I were a child how this code works: ",
+		"prompt_2": ". It will have to be an ordered list. For each point of the ordered list, quote me the piece of code you are referring to."
+	}
+}
+

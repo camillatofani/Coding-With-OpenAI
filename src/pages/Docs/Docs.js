@@ -4,17 +4,18 @@ import Response from '../../components/Form/Response/Response';
 import Button from '../../components/Button/Button';
 import axios from 'axios';
 import styles from './Docs.module.css';
-import Select from '../../components/Form/Select/Select';
+import { useTranslation } from 'react-i18next';
 
 const Docs = () => {
+	const { t } = useTranslation();
+
 	const [code, setCode] = useState('');
 	const [codingError, setCodingError] = useState('');
 	const [isErrorVisible, setIsErrorVisible] = useState(false);
-	const [speak, setSpeakChange] = useState('');
 
 	useEffect(() => {
 		setIsErrorVisible(false);
-	}, [code, speak]);
+	}, [code]);
 
 	const handleCheckErrors = async () => {
 		setIsErrorVisible(false);
@@ -25,7 +26,7 @@ const Docs = () => {
 			// Chiamata API per la verifica della lingua
 			const languageRequestBody = {
 				model: 'text-davinci-003',
-				prompt: `Spiegami in lingua ${ speak }, in una order list, usando termini molto semplici e spiegando come se io fossi un bambino come funziona questo codice: ${ code }. Per ogni punto citami il pezzo di codice a cui ti stai riferendo.`,
+				prompt: t('docs.prompt_1') + code + t('docs.prompt_2'),
 				max_tokens: 2000,
 			};
 			const languageResponse = await axios.post(apiUrl, languageRequestBody, {
@@ -35,22 +36,20 @@ const Docs = () => {
 				},
 			});
 			const languageResult = languageResponse.data.choices[0].text;
-			// Imposta il risultato della verifica della lingua nello stato
 			setCodingError(languageResult);
 			setIsErrorVisible(true);
 		} catch (error) {
-			console.error('Errore durante la verifica degli errori:', error);
+			console.error(t('general.api_error_console'), error);
 		}
 	};
 
 	return (
 		<div>
-			<h2>Enter your code and I'll try to explain it to you</h2>
-			<Select speak={ speak } onSpeakChange={ (e) => setSpeakChange(e.target.value) }/>
+			<h2>{ t('docs.title') }</h2>
 			<Input code={ code } onCodeChange={ (e) => setCode(e.target.value) }/>
 			<p className={ styles.counter }>{ code.length } / 1000</p>
-			<Button text="docs my code" onClick={ handleCheckErrors } disabled={ code.length < 5 }></Button>
-			{ isErrorVisible && <Response title="Your code explained" codingError={ codingError.replace(/^\n\n/, '') }/> }
+			<Button text={ t('docs.button') } onClick={ handleCheckErrors } disabled={ code.length < 10 }></Button>
+			{ isErrorVisible && <Response title={ t('docs.response') } codingError={ codingError.replace(/^\n\n/, '') }/> }
 		</div>
 	);
 };

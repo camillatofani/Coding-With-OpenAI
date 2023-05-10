@@ -1,0 +1,50 @@
+{
+	"general": {
+		"name": "Camilla Tofani",
+		"website": "https://www.camillatofani.it",
+		"linkedin": "https://www.linkedin.com/in/camilla-tofani/",
+		"input": "Scrivi o incolla il codice qui",
+		"api_error_console": "Errore durante la verifica degli errori:"
+	},
+	"menu": {
+		"home": "Home",
+		"type": "Type of",
+		"fix": "Fix my code",
+		"docs": "Docs"
+	},
+	"footer": {
+		"coding": "Sviluppato da"
+	},
+	"home": {
+		"mission_1": "Con questa semplice applicazione, ancora in versione",
+		"mission_2": "cerco di aiutare i Junior Developers.",
+		"beta": "BETA",
+		"feedback": "Per qualsiasi feedback mi potete trovare su",
+		"find": "In questa applicazione potete trovare:",
+		"type": "Incolla qui il codice e scopri in che linguaggio è stato scritto.",
+		"fix": "Qui potrai verificare se il tuo codice è corretto.",
+		"docs": "In questa sezione incollerai il codice per capirlo passo dopo passo grazie all'AI."
+	},
+	"typeof": {
+		"title": "Inserisci il codice e scopri il linguaggio",
+		"button": "Scopri il linguaggio",
+		"response": "Il linguaggio di questo codice è",
+		"prompt_1": "In che linguaggio è scritto il codice ",
+		"prompt_2": "? Dimmi solo il nome, senza punteggiatura e spazi. Prima del nome inserisci '✅'. Se il codice che ho scritto non esiste in programmazione dimmi soltanto '❌ Il codice che hai scritto non è stato riconosciuto.'"
+	},
+	"fix": {
+		"title": "Inserisci il codice e io farò il resto!",
+		"button": "Fixa il mio codice",
+		"response": "Il codice corretto è",
+		"change": "Da che punto il codice è diverso?",
+		"prompt_1": "Explain to me using very simple terms and explaining as if I were a child how this code works: ",
+		"prompt_2": ". It will have to be an ordered list. For each point of the ordered list, quote me the piece of code you are referring to."
+	},
+	"docs": {
+		"title": "Inserisci il codice e proverò a spiegartelo",
+		"button": "Documenta il codice",
+		"response": "Il tuo codice spiegato",
+		"prompt_1": "Spiegami usando termini molto semplici e spiegando come se io fossi un bambino come funziona questo codice: ",
+		"prompt_2": ". Dovrà essere una order list. Per ogni punto della ordered list citami il pezzo di codice a cui ti stai riferendo."
+	}
+}
