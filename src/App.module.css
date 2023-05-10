@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+}
+body {
+	width: 100%;
+	max-width: 900px;
+	margin: auto;
+	padding: 20px;
+	font-family: 'Montserrat', sans-serif;
+	background-color: #272C44;
+	color: #ffffff;
+	font-size: 18px;
+}
+h2 {
+	margin: 20px 0px;
+}
+.nav {
+	margin-left: 10px;
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+/* Target the scrollbar */
+pre::-webkit-scrollbar {
+  height: 5px;
+	cursor: pointer;
+}
+/* Track */
+pre::-webkit-scrollbar-track {
+  border-radius: 4px;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+/* Handle */
+pre::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color:  rgb(255, 82, 134);
+}
+/* Handle on hover */
+pre::-webkit-scrollbar-thumb:hover {
+  background: rgb(199, 58, 101);
+}
+select {
+	font-family: 'Montserrat', sans-serif;
+	color: #ffffff;
+	background-color: rgb(45, 54, 83);
+	border: solid 1px rgb(45, 54, 83);
+	border-radius: 0.385em;
+	box-shadow: 0 0px 20px rgba(0, 0, 0, 0.05);
+	resize: none;
+	padding: 20px;
+	width: calc(100% - 40px);
+	width: 100%;
+	margin: 20px auto;
+	font-size: 18px;
+}
+select option {
+  color: #fff;
+  background-color: rgb(45, 54, 83);
+	font-size: 18px;
+}

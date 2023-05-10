@@ -1,0 +1,38 @@
+.textarea {
+	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+	font-size: 20px;
+	color: #ffffff;
+	background-color: rgb(45, 54, 83);
+	border: solid 1px rgb(45, 54, 83);
+	border-radius: 0.385em;
+	box-shadow: 0 0px 20px rgba(0, 0, 0, 0.05);
+	resize: none;
+	padding: 20px;
+	width: calc(100% - 40px);
+}
+.textarea:focus {
+	outline: none;
+	/* border: solid 1px rgb(255, 82, 134); */
+}
+.textarea::placeholder {
+  color: #ffffff4c;
+}
+/* Target the scrollbar */
+.textarea::-webkit-scrollbar {
+  width: 5px;
+	cursor: pointer;
+}
+/* Track */
+.textarea::-webkit-scrollbar-track {
+	border-radius: 4px;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+/* Handle */
+.textarea::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+  background-color:  rgb(255, 82, 134);
+}
+/* Handle on hover */
+.textarea::-webkit-scrollbar-thumb:hover {
+  background: rgb(199, 58, 101);
+}
